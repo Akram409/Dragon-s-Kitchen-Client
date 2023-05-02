@@ -12,7 +12,7 @@ const Chef = () => {
   }, []);
 
   return (
-    <div>
+    <div className="mt-20">
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-3">Our Chef</h1>
         <p>

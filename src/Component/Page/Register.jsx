@@ -110,12 +110,12 @@ const Register = () => {
               </div>
             </div>
           </div>
-          <div>
-            <div onClick={handleGoogleLogin} className="cursor-pointer flex items-center bg-white gap-3 px-4 py-3 text-black mb-3">
+          <div className='flex gap-2 items-center'>
+            <div onClick={handleGoogleLogin} className="cursor-pointer flex items-center bg-white gap-3 px-4 py-2 text-black hover:animate-pulse ">
                 <img src={google} alt="" />
                 <h1>Continue with Google</h1>
             </div>
-            <div onClick={handleGithHubLogin} className="cursor-pointer flex items-center bg-white gap-3 px-4 py-3 text-black">
+            <div onClick={handleGithHubLogin} className="cursor-pointer flex items-center bg-white gap-3 px-4 py-2 text-black hover:animate-pulse">
                 <img src={github} alt="" />
                 <h1>Continue with Github</h1>
             </div>

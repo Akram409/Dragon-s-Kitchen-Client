@@ -6,7 +6,8 @@
     background-image: url('/public/banner.jpg');
     background-repeat: no-repeat;
     width: 100%;
-    min-height: 113vh;
+    /* min-height: 100vh; */
+    max-height: 120vh;
     background-size: cover;
 }
 

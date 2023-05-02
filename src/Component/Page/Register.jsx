@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import google from "/public/google.png"
+import github from "/public/github.png"
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
-  const [error, setError] = useState("");
+  const { createUser,handleGoogleLogin,handleGithHubLogin} = useContext(AuthContext);
+  const [error, setError] = useState("") ;
 
   const handleRegbtn = (event) => {
     event.preventDefault();
@@ -108,8 +110,19 @@ const Register = () => {
               </div>
             </div>
           </div>
+          <div>
+            <div onClick={handleGoogleLogin} className="cursor-pointer flex items-center bg-white gap-3 px-4 py-3 text-black mb-3">
+                <img src={google} alt="" />
+                <h1>Continue with Google</h1>
+            </div>
+            <div onClick={handleGithHubLogin} className="cursor-pointer flex items-center bg-white gap-3 px-4 py-3 text-black">
+                <img src={github} alt="" />
+                <h1>Continue with Github</h1>
+            </div>
+          </div>
         </div>
       </div>
+      
     </form>
   );
 };

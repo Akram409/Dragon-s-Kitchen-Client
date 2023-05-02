@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Link } from "react-router-dom";
+import google from "/public/google.png"
+import github from "/public/github.png"
 
 const Login = () => {
-    const { logIn } = useContext(AuthContext);
+    const { logIn , handleGoogleLogin,handleGithHubLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
 
   const handlelogInbtn = (event) => {
@@ -14,14 +16,6 @@ const Login = () => {
 
     setError("");
 
-    if (!/^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/.test(password)) {
-      setError("Password Validation not match!!");
-      return;
-    }
-    else if (password.length < 6) {
-        setError('password must be 6 characters or longer')
-        return
-    }
 
     logIn(email, password)
       .then((result) => {
@@ -86,6 +80,16 @@ const Login = () => {
                 </div>
               </div>
             </div>
+            <div>
+            <div onClick={handleGoogleLogin} className="cursor-pointer flex items-center bg-white gap-3 px-4 py-3 text-black mb-3">
+                <img src={google} alt="" />
+                <h1>Continue with Google</h1>
+            </div>
+            <div onClick={handleGithHubLogin} className="cursor-pointer flex items-center bg-white gap-3 px-4 py-3 text-black">
+                <img src={github} alt="" />
+                <h1>Continue with Github</h1>
+            </div>
+          </div>
           </div>
         </div>
       </form>

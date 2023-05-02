@@ -1,0 +1,50 @@
+[
+  {
+    "chefPicture": "image1.jpg",
+    "chefName": "Jessica Chen",
+    "yearsOfExperience": 12,
+    "numberOfRecipes": 68,
+    "likes": 3200,
+    "viewRecipesButton": "https://www.example.com/recipes/jessica-chen"
+  },
+  {
+    "chefPicture": "image2.jpg",
+    "chefName": "Luis Ramirez",
+    "yearsOfExperience": 9,
+    "numberOfRecipes": 51,
+    "likes": 2500,
+    "viewRecipesButton": "https://www.example.com/recipes/luis-ramirez"
+  },
+  {
+    "chefPicture": "image3.jpg",
+    "chefName": "Sophia Patel",
+    "yearsOfExperience": 15,
+    "numberOfRecipes": 84,
+    "likes": 4700,
+    "viewRecipesButton": "https://www.example.com/recipes/sophia-patel"
+  },
+  {
+    "chefPicture": "image4.jpg",
+    "chefName": "Andrew Kim",
+    "yearsOfExperience": 7,
+    "numberOfRecipes": 37,
+    "likes": 900,
+    "viewRecipesButton": "https://www.example.com/recipes/andrew-kim"
+  },
+  {
+    "chefPicture": "image5.jpg",
+    "chefName": "Samantha Wong",
+    "yearsOfExperience": 11,
+    "numberOfRecipes": 62,
+    "likes": 2800,
+    "viewRecipesButton": "https://www.example.com/recipes/samantha-wong"
+  },
+  {
+    "chefPicture": "image6.jpg",
+    "chefName": "Benjamin Lee",
+    "yearsOfExperience": 20,
+    "numberOfRecipes": 113,
+    "likes": 7500,
+    "viewRecipesButton": "https://www.example.com/recipes/benjamin-lee"
+  }
+]

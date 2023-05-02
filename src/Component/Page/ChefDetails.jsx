@@ -13,7 +13,7 @@ const ChefDetails = ({ item }) => {
   return (
     <>
       {/* Chef-Bio Banner   */}
-      <div className="hero min-h-screen text-white border border-green-700">
+      <div className="hero mt-4 mb-6 text-white">
         <div className="hero-content flex-col lg:flex-row gap-4">
             <img className="w-1/4 h-1/2" src={chefPicture} alt="" />
           <div>

@@ -12,6 +12,8 @@ import Login from "./Component/Page/Login";
 import Register from "./Component/Page/Register";
 import ChefRecipe from "./Component/Page/ChefRecipe";
 import VeiwDetails from "./Component/Page/VeiwDetails";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {

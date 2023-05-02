@@ -3,6 +3,8 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { Link } from "react-router-dom";
 import google from "/public/google.png"
 import github from "/public/github.png"
+import "@smastrom/react-rating/style.css";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
     const { logIn , handleGoogleLogin,handleGithHubLogin } = useContext(AuthContext);
@@ -16,14 +18,34 @@ const Login = () => {
 
     setError("");
 
-
     logIn(email, password)
       .then((result) => {
         const user = result.user;
+        toast.success("Login Successfull!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
         form.reset();
         console.log(user);
       })
       .catch((error) => {
+        toast.warning("Login Unccessfull!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        setError("Email and Password Invalid!!")
         console.log(error.message);
       });
   };
@@ -66,7 +88,7 @@ const Login = () => {
                   </label>
                 </div>
                 <div>
-                  <p>{error}</p>
+                  <p className='text-error'>{error}</p>
                 </div>
                 <div className="form-control mt-4">
                   <button className="btn btn-primary text-white">Login</button>

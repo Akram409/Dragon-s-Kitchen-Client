@@ -6,10 +6,11 @@ const Chef = () => {
   const [item, setItem] = useState([]);
 
   useEffect(() => {
-    fetch("/public/ChefData.json")
+    fetch("https://dragons-kitchen-server-akram409.vercel.app/ChefData")
       .then((res) => res.json())
       .then((data) => setItem(data));
   }, []);
+
   return (
     <div>
       <div className="text-center">

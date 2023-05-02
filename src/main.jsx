@@ -7,6 +7,9 @@ import Footer from "./Component/Page/Footer";
 import Main from "./Component/Page/Main";
 import Home from "./Component/Page/Home";
 import AuthProvider from "./Component/Provider/AuthProvider";
+import Blog from "./Component/Page/Blog";
+import Login from "./Component/Page/Login";
+import Register from "./Component/Page/Register";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +19,19 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-      }
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
     ],
   },
 ]);

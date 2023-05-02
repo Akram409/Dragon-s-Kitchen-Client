@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "/public/dragon.png"
 
 const Navbar = () => {
   return (
@@ -38,7 +39,12 @@ const Navbar = () => {
             </li>
             </ul>
           </div>
+          <div className="flex items-center">
+            <div>
+              <img src={logo} alt="" />
+            </div>
           <a className="btn btn-ghost normal-case text-3xl">Dragons Kitchen</a>
+          </div>
         </div>
         <div className="navbar-center hidden md:flex">
           <ul className="menu menu-horizontal px-1 gap-2">

@@ -10,6 +10,8 @@ import AuthProvider from "./Component/Provider/AuthProvider";
 import Blog from "./Component/Page/Blog";
 import Login from "./Component/Page/Login";
 import Register from "./Component/Page/Register";
+import ChefRecipe from "./Component/Page/ChefRecipe";
+import VeiwDetails from "./Component/Page/VeiwDetails";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/chefdetails/:id",
+        element: <VeiwDetails />,
       },
     ],
   },

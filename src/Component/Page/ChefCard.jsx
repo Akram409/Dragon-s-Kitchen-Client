@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ChefCard = ({item}) => {
-  const {chefPicture, chefName, yearsOfExperience , numberOfRecipes , likes } = item;
+  const {id,chefPicture, chefName, yearsOfExperience , numberOfRecipes , likes } = item;
 console.log(item)
 
   return (
@@ -20,7 +20,7 @@ console.log(item)
         <p>Number of Recipes: {numberOfRecipes}</p>
         <p>Total Likes: {likes}</p>
         <div className="card-actions justify-center">
-          <Link to="/"><button className="btn btn-primary text-white">View Recipes</button></Link>
+          <Link to={`/chefdetails/${id}`}><button className="btn btn-primary text-white">View Recipes</button></Link>
         </div>
       </div>
     </div>

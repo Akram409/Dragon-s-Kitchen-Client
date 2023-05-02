@@ -5,7 +5,7 @@ import google from "/public/google.png"
 import github from "/public/github.png"
 
 const Register = () => {
-  const { createUser,handleGoogleLogin,handleGithHubLogin} = useContext(AuthContext);
+  const { createUser,handleGoogleLogin,handleGithHubLogin,updateUser} = useContext(AuthContext);
   const [error, setError] = useState("") ;
 
   const handleRegbtn = (event) => {
@@ -27,7 +27,7 @@ const Register = () => {
         return
     }
 
-    createUser(name,photoUrl,email, password)
+    createUser(email, password)
       .then((result) => {
         const user = result.user;
         form.reset();
@@ -36,6 +36,15 @@ const Register = () => {
       .catch((error) => {
         console.log(error.message);
       });
+
+      updateUser(name,photoUrl)
+      .then((result) => {
+        console.log("user name Updated")
+      })
+      .catch(error =>{
+        setError(error.message)
+        console.log(error.message)
+      })
   };
 
   return (

@@ -6,6 +6,7 @@ import Chef from "./Chef";
 import Login from "./Login";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Spiner from "../Share/Spiner";
 
 
 const Main = () => {

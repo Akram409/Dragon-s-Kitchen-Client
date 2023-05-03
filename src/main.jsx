@@ -15,6 +15,7 @@ import VeiwDetails from "./Component/Page/VeiwDetails";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import About from "./Component/Page/About";
+import ClientReview from "./Component/Page/ClientReview";
 
 const router = createBrowserRouter([
   {

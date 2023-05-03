@@ -4,7 +4,7 @@ import "@smastrom/react-rating/style.css";
 import { ToastContainer, toast } from "react-toastify";
 
 const ChefRecipe = ({ item }) => {
-  const [ratings, setRatings] = useState(3);
+  const [ratings, setRatings] = useState(0);
   const { chef_id, recipeName, ingredients, cookingMethod, rating } = item;
   const [mark, setmark] = useState(false);
 

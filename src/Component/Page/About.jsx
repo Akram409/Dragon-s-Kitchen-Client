@@ -1,8 +1,18 @@
 import React from "react";
 import image from "/public/banner.jpg";
+
+
+
+
+const startupScreen = (
+  <div>
+    <img src="/path/to/image-loader.png" />
+  </div>
+);
+
 const About = () => {
   return (
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 my-14 shadow-2xl rounded-md">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-28 shadow-2xl rounded-md">
       <div className="px-6 pt-4">
         <h1 className="text-4xl font-bold text-red-500 mb-1">About</h1>
         <h1 className="text-3xl font-bold mb-5">Why Dragons Kitchen?</h1>

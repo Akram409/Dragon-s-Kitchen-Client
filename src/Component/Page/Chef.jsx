@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ChefCard from "./ChefCard";
 import { key } from "localforage";
 import About from "./About";
+import ClientReview from "./ClientReview";
 
 const Chef = () => {
   const [item, setItem] = useState([]);
@@ -31,6 +32,7 @@ const Chef = () => {
         </div>
       </div>
       <About />
+      <ClientReview />
     </>
   );
 };

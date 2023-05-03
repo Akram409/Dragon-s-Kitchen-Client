@@ -14,6 +14,7 @@ import ChefRecipe from "./Component/Page/ChefRecipe";
 import VeiwDetails from "./Component/Page/VeiwDetails";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import About from "./Component/Page/About";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/chefdetails/:id",
         element: <VeiwDetails />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
     ],
   },

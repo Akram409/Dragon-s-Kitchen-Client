@@ -1,10 +1,16 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Link, useNavigation } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
 import google from "/public/google.png";
 import github from "/public/github.png";
 import "@smastrom/react-rating/style.css";
 import { ToastContainer, toast } from "react-toastify";
+import Spiner from "../Share/Spiner";
 
 const Register = () => {
   const [show, setShow] = useState(false);
@@ -12,9 +18,38 @@ const Register = () => {
     useContext(AuthContext);
   const [error, setError] = useState("");
   const navigation = useNavigation();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   if (navigation.state === "loading") {
     return <Spiner />;
+  }
+
+  const handleGoogle = () =>{
+    handleGoogleLogin()
+    .then(result =>{
+      const user = result.user
+      navigate(from, { replace: true });
+      console.log(user)
+    })
+    .catch(error =>{
+      setError(error.message)
+      console.log(error.message)
+    })
+  }
+
+  const handleGitHub = () =>{
+    handleGithHubLogin()
+    .then((result) => {
+      const user = result.user
+      navigate(from, { replace: true });
+      console.log(user);
+    })
+    .catch((error) => {
+      setError(error.message);
+      console.log(error);
+    });
   }
 
   const handleRegbtn = (event) => {
@@ -40,6 +75,14 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
+        updateUser(name, photoUrl)
+          .then((result) => {
+            console.log("user name Updated");
+          })
+          .catch((error) => {
+            setError(error.message);
+            console.log(error.message);
+          });
         toast.success("Register Successfull!", {
           position: "top-right",
           autoClose: 5000,
@@ -51,6 +94,7 @@ const Register = () => {
           theme: "colored",
         });
         form.reset();
+        navigate(from, { replace: true });
         console.log(user);
       })
       .catch((error) => {
@@ -64,15 +108,6 @@ const Register = () => {
           progress: undefined,
           theme: "colored",
         });
-        setError(error.message);
-        console.log(error.message);
-      });
-
-    updateUser(name, photoUrl)
-      .then((result) => {
-        console.log("user name Updated");
-      })
-      .catch((error) => {
         setError(error.message);
         console.log(error.message);
       });
@@ -177,11 +212,6 @@ const Register = () => {
                         </svg>
                       )}
                     </div>
-                    {/* <input
-                      type="checkbox"
-                      className="checkbox checkbox-info"
-                      
-                    /> */}
                   </label>
                 </div>
               </div>
@@ -205,14 +235,14 @@ const Register = () => {
           </div>
           <div className="flex gap-2 items-center">
             <div
-              onClick={handleGoogleLogin}
+              onClick={handleGoogle}
               className="cursor-pointer flex items-center bg-white gap-3 px-4 py-2 text-black hover:animate-pulse "
             >
               <img src={google} alt="" />
               <h1>Continue with Google</h1>
             </div>
             <div
-              onClick={handleGithHubLogin}
+              onClick={handleGitHub}
               className="cursor-pointer flex items-center bg-white gap-3 px-4 py-2 text-black hover:animate-pulse"
             >
               <img src={github} alt="" />

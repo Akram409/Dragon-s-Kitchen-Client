@@ -10,48 +10,29 @@ import {
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext();
+const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
-  const auth = getAuth(app);
+ 
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  // const navigate = useNavigate();
-  // const location = useLocation();
-  // const from = location.state?.from?.pathname || "/";
+
 
   const Googleprovider = new GoogleAuthProvider();
   const GitHubprovider = new GithubAuthProvider();
 
   const handleGoogleLogin = () => {
-    signInWithPopup(auth, Googleprovider)
-      .then((result) => {
-        const user = result.user;
-        setUser(user);
-        setLoading(true)
-        
-        console.log(user);
-      })
-      .catch((error) => {
-        setError(error.message);
-        console.log(error);
-      });
+    return signInWithPopup(auth, Googleprovider)
+      
   };
+
   const handleGithHubLogin = () => {
-    signInWithPopup(auth, GitHubprovider)
-      .then((result) => {
-        const user = result.user;
-        setUser(user);
-        setLoading(true)
-        console.log(user);
-      })
-      .catch((error) => {
-        setError(error.message);
-        console.log(error);
-      });
+    return signInWithPopup(auth, GitHubprovider)
+
   };
   const createUser = (email, password) => {
     setLoading(true);

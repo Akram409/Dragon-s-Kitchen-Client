@@ -15,7 +15,7 @@ import Spiner from "../Share/Spiner";
 
 const Login = () => {
   const [show, setShow] = useState(false);
-  const { user, logIn, handleGoogleLogin, handleGithHubLogin } =
+  const { user,setUser, logIn, handleGoogleLogin, handleGithHubLogin } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -27,6 +27,31 @@ const Login = () => {
     return <Spiner />;
   }
 
+  const handleGoogle = () =>{
+    handleGoogleLogin()
+    .then(result =>{
+      const user = result.user
+      navigate(from, { replace: true });
+      console.log(user)
+    })
+    .catch(error =>{
+      setError(error.message)
+      console.log(error.message)
+    })
+  }
+
+  const handleGitHub = () =>{
+    handleGithHubLogin()
+    .then((result) => {
+      const user = result.user
+      navigate(from, { replace: true });
+      console.log(user);
+    })
+    .catch((error) => {
+      setError(error.message);
+      console.log(error);
+    });
+  }
   const handlelogInbtn = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -67,7 +92,7 @@ const Login = () => {
         console.log(error.message);
       });
   };
-  // console.log(user)
+
   return (
     <form onSubmit={handlelogInbtn}>
       <div className="hero ">
@@ -143,17 +168,12 @@ const Login = () => {
                         </svg>
                       )}
                     </div>
-                    {/* <input
-                      type="checkbox"
-                      className="checkbox checkbox-info"
-                      
-                    /> */}
                   </label>
                 </div>
                 <label className="label">
                   <Link
                     to="/"
-                    className="label-text-alt link link-hover hover:link-primary"
+                    className="label-text-alt link link-hover hover:link-primary "
                   >
                     Forgot password?
                   </Link>
@@ -179,14 +199,14 @@ const Login = () => {
           </div>
           <div className="flex gap-2 items-center">
             <div
-              onClick={handleGoogleLogin}
+              onClick={handleGoogle}
               className="cursor-pointer flex items-center bg-white gap-3 px-4 py-2 text-black hover:animate-pulse"
             >
               <img src={google} alt="" />
               <h1>Continue with Google</h1>
             </div>
             <div
-              onClick={handleGithHubLogin}
+              onClick={handleGitHub}
               className="cursor-pointer flex items-center bg-white gap-3 px-4 py-2 text-black hover:animate-pulse"
             >
               <img src={github} alt="" />

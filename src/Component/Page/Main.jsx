@@ -8,12 +8,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Blog from "./Blog";
 
-
 const Main = () => {
   return (
     <div>
       <Navbar />
-        <Outlet />
+      <Outlet />
       <ToastContainer
         position="top-right"
         autoClose={5000}

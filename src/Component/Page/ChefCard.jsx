@@ -22,12 +22,11 @@ const ChefCard = ({ item }) => {
   return (
     <div className="card bg-base-100 shadow-2xl text-center">
       <figure className="img-fluid w-full h-1/2 ">
-        <LazyLoadImage
-          className="w-1/2 h-full"
-          // effect="blur"
-          src={chefPicture}
-          alt=""
-        />
+      <LazyLoadImage src={chefPicture}
+        width={200} height={300}
+        effect="blur"
+        alt="Image Alt"
+      />
       </figure>
       <div className="card-body">
         <h2 className="text-3xl font-bold">{chefName}</h2>

@@ -39,7 +39,7 @@ const About = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum vitae
           neque, tempore similique amet esse
         </p>
-        <button className="btn btn-error text-white font-bold mb-1">
+        <button className="btn btn-primary text-white font-bold mb-1">
           Learn More
         </button>
       </div>

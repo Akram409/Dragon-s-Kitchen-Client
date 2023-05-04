@@ -17,6 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import About from "./Component/Page/About";
 import ClientReview from "./Component/Page/ClientReview";
 import PrivateRoute from "./Component/Provider/PrivateRoute";
+import Error from "./Component/Share/Error/Error";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "*",
+        element: <Error />,
       },
     ],
   },

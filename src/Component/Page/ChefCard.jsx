@@ -1,11 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
+import Spiner from "../Share/Spiner";
 
 const ChefCard = ({item}) => {
   const {id,chefPicture, chefName, yearsOfExperience , numberOfRecipes , likes } = item;
-console.log(item)
+  const navigation = useNavigation()
+
+  if(navigation.state === 'loading')
+  {
+    return <Spiner />
+  }
 
   return (
+    
     <div className="card bg-base-100 shadow-2xl text-center">
       <figure className="img-fluid w-full h-1/2" >
         <img
@@ -20,7 +27,7 @@ console.log(item)
         <p>Number of Recipes: {numberOfRecipes}</p>
         <p>Total Likes: {likes}</p>
         <div className="card-actions justify-center">
-          <Link to={`/chefdetails/${id}`}><button className="btn btn-primary text-white">View Recipes</button></Link>
+          <Link to={`/viewdetail/${id}`}><button className="btn btn-primary text-white">View Recipes</button></Link>
         </div>
       </div>
     </div>

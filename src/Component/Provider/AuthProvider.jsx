@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext(null);
 
@@ -18,6 +19,9 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  // const navigate = useNavigate();
+  // const location = useLocation();
+  // const from = location.state?.from?.pathname || "/";
 
   const Googleprovider = new GoogleAuthProvider();
   const GitHubprovider = new GithubAuthProvider();
@@ -27,6 +31,8 @@ const AuthProvider = ({ children }) => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        setLoading(true)
+        
         console.log(user);
       })
       .catch((error) => {
@@ -39,6 +45,7 @@ const AuthProvider = ({ children }) => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        setLoading(true)
         console.log(user);
       })
       .catch((error) => {
@@ -76,8 +83,10 @@ const AuthProvider = ({ children }) => {
       return unsubscribe();
     };
   }, []);
+
   const authInfo = {
     user,
+    loading,
     createUser,
     logIn,
     logOut,

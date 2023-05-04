@@ -3,9 +3,18 @@ import ChefCard from "./ChefCard";
 import { key } from "localforage";
 import About from "./About";
 import ClientReview from "./ClientReview";
+import { useNavigation } from "react-router-dom";
+import Spiner from "../Share/Spiner";
 
 const Chef = () => {
+  const navigation = useNavigation()
   const [item, setItem] = useState([]);
+
+  
+  if(navigation.state === 'loading')
+  {
+    return <Spiner />
+  }
 
   useEffect(() => {
     fetch("https://dragons-kitchen-server-akram409.vercel.app/ChefData")

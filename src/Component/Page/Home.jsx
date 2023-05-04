@@ -1,6 +1,5 @@
 import React from "react";
 import food from "/public/Chinese-Cuisine1.png";
-import "../Style/Home.css";
 import Chef from "./Chef";
 
 const Home = () => {

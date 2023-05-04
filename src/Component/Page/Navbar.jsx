@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import logo from "/public/dragon.png"
+import logo from "/public/dragon.png";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
-  const {user} = useContext(AuthContext)
-
+  const { user,logOut} = useContext(AuthContext);
+  const handleLogOut =() =>{
+    logOut()
+  }
   return (
     <>
       <div className="navbar text-white container mx-auto">
@@ -32,52 +34,86 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52"
             >
               <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/">Blog</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/blog">Blog</Link>
+              </li>
+              {user ? (
+              <li>
+                <Link className="text-xl" to="/" onClick={handleLogOut}>
+                  LogOut
+                </Link>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <Link className="text-xl" to="/login">
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-xl" to="/register">
+                    Register
+                  </Link>
+                </li>
+              </>
+            )}
             </ul>
           </div>
           <div className="flex items-center">
             <div>
               <img src={logo} alt="" />
             </div>
-          <a className="btn btn-ghost normal-case text-3xl">Dragons Kitchen</a>
+            <a className="btn btn-ghost normal-case text-3xl">
+              Dragons Kitchen
+            </a>
           </div>
         </div>
         <div className="navbar-center hidden md:flex">
           <ul className="menu menu-horizontal px-1 gap-2">
             <li>
-              <Link className="text-xl" to="/">Home</Link>
+              <Link className="text-xl" to="/">
+                Home
+              </Link>
             </li>
             <li>
-              <Link className="text-xl" to="/blog">Blog</Link>
+              <Link className="text-xl" to="/blog">
+                Blog
+              </Link>
             </li>
-            <li>
-              <Link className="text-xl" to="/login">Login</Link>
-            </li>
-            <li>
-              <Link className="text-xl" to="/register">Register</Link>
-            </li>
+            {user ? (
+              <li>
+                <Link className="text-xl" to="/" onClick={handleLogOut}>
+                  LogOut
+                </Link>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <Link className="text-xl" to="/login">
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-xl" to="/register">
+                    Register
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         <div className="navbar-end">
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <label style={{}} tabIndex={0} className="btn btn-ghost btn-circle avatar showName">
               <div className="w-10 rounded-full">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <img src={user?.photoURL} />
               </div>
             </label>
             <ul
               tabIndex={0}
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-error rounded-box w-52"
             >
               <li>
                 <a className="justify-between">
@@ -88,9 +124,26 @@ const Navbar = () => {
               <li>
                 <a>Settings</a>
               </li>
+              {user ? (
               <li>
-                <a>Logout</a>
+                <Link className="text-xl" to="/" onClick={handleLogOut}>
+                  LogOut
+                </Link>
               </li>
+            ) : (
+              <>
+                <li>
+                  <Link className="text-xl" to="/login">
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-xl" to="/register">
+                    Register
+                  </Link>
+                </li>
+              </>
+            )}
             </ul>
           </div>
         </div>

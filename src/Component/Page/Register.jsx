@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
 import google from "/public/google.png"
 import github from "/public/github.png"
 import "@smastrom/react-rating/style.css";
@@ -9,6 +9,12 @@ import { ToastContainer, toast } from "react-toastify";
 const Register = () => {
   const { createUser,handleGoogleLogin,handleGithHubLogin,updateUser} = useContext(AuthContext);
   const [error, setError] = useState("") ;
+  const navigation = useNavigation()
+
+  if(navigation.state === 'loading')
+  {
+    return <Spiner />
+  }
 
   const handleRegbtn = (event) => {
     event.preventDefault();

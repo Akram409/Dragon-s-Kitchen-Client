@@ -2,11 +2,19 @@ import React, { useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigation } from "react-router-dom";
+import Spiner from "../Share/Spiner";
 
 const ChefRecipe = ({ item }) => {
+  const navigation = useNavigation()
   const [ratings, setRatings] = useState(0);
   const { chef_id, recipeName, ingredients, cookingMethod, rating } = item;
   const [mark, setmark] = useState(false);
+
+  if(navigation.state === 'loading')
+  {
+    return <Spiner />
+  }
 
   const handlefav = () => {
     setmark(!mark)

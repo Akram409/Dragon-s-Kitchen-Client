@@ -16,6 +16,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import About from "./Component/Page/About";
 import ClientReview from "./Component/Page/ClientReview";
+import PrivateRoute from "./Component/Provider/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -39,8 +40,8 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/chefdetails/:id",
-        element: <VeiwDetails />,
+        path: "/viewdetail/:id",
+        element: <PrivateRoute><VeiwDetails></VeiwDetails></PrivateRoute>,
       },
       {
         path: "/about",

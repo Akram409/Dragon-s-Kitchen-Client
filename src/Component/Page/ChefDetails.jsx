@@ -1,5 +1,13 @@
 import React from "react";
+import { useNavigation } from "react-router-dom";
+
 const ChefDetails = ({ item }) => {
+  const navigation = useNavigation()
+
+  if(navigation.state === 'loading')
+  {
+    return <Spiner />
+  }
   const {
     id,
     chefPicture,

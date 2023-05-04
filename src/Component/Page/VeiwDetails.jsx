@@ -1,15 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import ChefDetails from "./ChefDetails";
 import ChefRecipe from "./ChefRecipe";
-import { useParams } from "react-router-dom";
+import { useNavigation, useParams } from "react-router-dom";
 import { key } from "localforage";
+import Spiner from "../Share/Spiner";
 
 const VeiwDetails = () => {
   const { id } = useParams();
-
+  const navigation = useNavigation()
   const [item, setItem] = useState([]);
   const [recipes, setRecipes] = useState([]);
 
+  if(navigation.state === 'loading')
+  {
+    return <Spiner />
+  }
+  
   useEffect(() => {
     fetch(`https://dragons-kitchen-server-akram409.vercel.app/ChefData/${id}`)
       .then((res) => res.json())

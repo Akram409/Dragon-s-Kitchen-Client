@@ -31,10 +31,30 @@ const Login = () => {
     handleGoogleLogin()
     .then(result =>{
       const user = result.user
+      toast.success("Login Successfull!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       navigate(from, { replace: true });
       console.log(user)
     })
     .catch(error =>{
+      toast.warning("Login Unccessfull!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       setError(error.message)
       console.log(error.message)
     })
@@ -44,10 +64,30 @@ const Login = () => {
     handleGithHubLogin()
     .then((result) => {
       const user = result.user
+      toast.success("Login Successfull!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       navigate(from, { replace: true });
       console.log(user);
     })
     .catch((error) => {
+      toast.warning("Login Unccessfull!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       setError(error.message);
       console.log(error);
     });

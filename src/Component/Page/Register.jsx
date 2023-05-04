@@ -30,28 +30,66 @@ const Register = () => {
     handleGoogleLogin()
     .then(result =>{
       const user = result.user
+      toast.success("Register Successfull!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       navigate(from, { replace: true });
       console.log(user)
     })
     .catch(error =>{
+      toast.warning("Register Unccessfull!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       setError(error.message)
       console.log(error.message)
     })
   }
-
   const handleGitHub = () =>{
     handleGithHubLogin()
     .then((result) => {
       const user = result.user
+      toast.success("Login Successfull!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       navigate(from, { replace: true });
       console.log(user);
     })
     .catch((error) => {
+      toast.warning("Login Unccessfull!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       setError(error.message);
       console.log(error);
     });
   }
-
   const handleRegbtn = (event) => {
     event.preventDefault();
     const form = event.target;

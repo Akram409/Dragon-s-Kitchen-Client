@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "/public/dragon.png";
+import profile from "/public/profile.png"
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
@@ -149,7 +150,7 @@ const Navbar = () => {
                 </div>
               ) : (
                 <div className="w-10 rounded-full img__wrap">
-                  <img className="img__img" src="/public/profile.png" />
+                  <img className="img__img" src={profile} />
                   <p class="img__description">{user?.displayName}</p>
                 </div>
               )}

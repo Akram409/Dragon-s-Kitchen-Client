@@ -102,10 +102,7 @@ const Blog = () => {
 
       {active ? (
         <div className="text-center">
-          <button
-            className="btn btn-accent text-white"
-            onClick={handlePreveiw}
-          >
+          <button className="btn btn-accent text-white" onClick={handlePreveiw}>
             Preview PDF
           </button>
         </div>

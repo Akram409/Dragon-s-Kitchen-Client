@@ -1,12 +1,13 @@
 import React from "react";
 import { useNavigation } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const ChefDetails = ({ item }) => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
-  if(navigation.state === 'loading')
-  {
-    return <Spiner />
+  if (navigation.state === "loading") {
+    return <Spiner />;
   }
   const {
     id,
@@ -15,7 +16,7 @@ const ChefDetails = ({ item }) => {
     yearsOfExperience,
     numberOfRecipes,
     likes,
-    chefBio
+    chefBio,
   } = item;
   // console.log(item)
   return (
@@ -23,7 +24,11 @@ const ChefDetails = ({ item }) => {
       {/* Chef-Bio Banner   */}
       <div className="hero mt-4 mb-6 text-white">
         <div className="hero-content flex-col lg:flex-row gap-4">
-            <img className="w-1/4 h-1/2" src={chefPicture} alt="" />
+          <LazyLoadImage
+            className="w-1/4 h-1/2"
+            effect="blur"
+            src={chefPicture} // use normal <img> attributes as props
+          />
           <div>
             <h1 className="text-5xl font-bold">{chefName}</h1>
             <p className="pt-6 text-xl">{chefBio}</p>

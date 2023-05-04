@@ -26,7 +26,7 @@ const Chef = () => {
     <>
       <div className="mt-20">
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-3">Our Chef</h1>
+          <h1 className="text-4xl font-bold mb-3">Our Experts</h1>
           <p>
             Lacus lobortis nullam nam consectetur fermentum mattis pellentesque
             id nulla. Risus convallis iaculis risus ac aliquam sit ultricies.

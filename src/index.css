@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'hotpizza';
+  src: local('hotpizza'), url(./fonts/hotpizza/hotpizza.ttf) format('truetype');
+}
+
+/* *{
+  font-family: hotpizza , serif;
+} */
+
 .banner{
     background-image: url('/public/banner.jpg');
     background-repeat: no-repeat;

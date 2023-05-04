@@ -13,7 +13,7 @@ const startupScreen = (
 const About = () => {
   return (
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-28 shadow-2xl rounded-md">
-      <div className="px-6 pt-4">
+      <div className="px-7 pt-4">
         <h1 className="text-4xl font-bold text-red-500 mb-1">About</h1>
         <h1 className="text-3xl font-bold mb-5">Why Dragons Kitchen?</h1>
         <p>

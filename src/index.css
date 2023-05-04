@@ -6,15 +6,28 @@
     background-image: url('/public/banner.jpg');
     background-repeat: no-repeat;
     width: 100%;
-    /* min-height: 100vh; */
     max-height: 120vh;
     background-size: cover;
 }
 
-/* .active{
-    @apply font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-blue-400
-  } */
-  
-  /* .default{
-    @apply font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400
-  } */
+.img__wrap {
+  position: relative;
+}
+
+.img__description {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  font-size: xx-small;
+  transition: opacity .2s, visibility .2s;
+}
+
+.img__wrap:hover .img__description {
+  visibility: visible;
+  opacity: 1;
+}

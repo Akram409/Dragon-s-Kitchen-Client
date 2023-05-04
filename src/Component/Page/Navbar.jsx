@@ -8,6 +8,7 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut();
   };
+
   return (
     <>
       <div className="navbar text-white container mx-auto">
@@ -141,9 +142,17 @@ const Navbar = () => {
               tabIndex={0}
               className="btn btn-ghost btn-circle avatar showName"
             >
-              <div className="w-10 rounded-full">
-                <img src={user?.photoURL} />
-              </div>
+              {user?.photoURL ? (
+                <div className="w-10 rounded-full img__wrap">
+                  <img className="img__img" src={user?.photoURL} />
+                  <p class="img__description">{user?.displayName}</p>
+                </div>
+              ) : (
+                <div className="w-10 rounded-full img__wrap">
+                  <img className="img__img" src="/public/profile.png" />
+                  <p class="img__description">{user?.displayName}</p>
+                </div>
+              )}
             </label>
             <ul
               tabIndex={0}

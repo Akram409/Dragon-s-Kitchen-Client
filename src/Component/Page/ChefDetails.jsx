@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigation } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { BiLike, BiAtom } from "react-icons/bi";
+import { GiRiceCooker, GiCook } from "react-icons/gi";
 
 const ChefDetails = ({ item }) => {
   const navigation = useNavigation();
@@ -30,16 +32,25 @@ const ChefDetails = ({ item }) => {
             src={chefPicture} // use normal <img> attributes as props
           />
           <div>
-            <h1 className="text-5xl font-bold">{chefName}</h1>
-            <p className="pt-6 text-xl">{chefBio}</p>
-            <br />
-            <p className="text-xl">Year of Experience: {yearsOfExperience}</p>
-            <br />
-            <p className="text-xl">Number of Recipes: {numberOfRecipes}</p>
-            <br />
-            <p className="text-xl">Total Likes: {likes}</p>
-            <br />
-            <button className="btn btn-primary">Get Started</button>
+            <h1 className="text-5xl font-bold mb-2">{chefName}</h1>
+            <span className="text-xl font-bold">Chef-Bio: {chefBio}</span>
+            <div className="flex gap-2 items-center justify-start mt-2">
+              <GiCook size="2em" color="white" />
+              <span className="text-xl font-bold">
+                Year of Experience: {yearsOfExperience}
+              </span>
+            </div>
+            <div className="flex gap-2 items-center justify-start">
+              <GiRiceCooker size="2em" color="white" />
+              <span className="text-xl font-bold">
+                Number of Recipes: {numberOfRecipes}
+              </span>
+            </div>
+            <div className="flex gap-2 items-center justify-start">
+              <BiLike size="2em" color="white" />
+              <span className="text-xl font-bold">Total Likes: {likes}</span>
+            </div>
+            <button className="btn btn-primary mt-3 text-white">More</button>
           </div>
         </div>
       </div>

@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "/public/dragon.png";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
-  const { user,logOut} = useContext(AuthContext);
-  const handleLogOut =() =>{
-    logOut()
-  }
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut();
+  };
   return (
     <>
       <div className="navbar text-white container mx-auto">
@@ -40,65 +40,95 @@ const Navbar = () => {
                 <Link to="/blog">Blog</Link>
               </li>
               {user ? (
-              <li>
-                <Link className="text-xl" to="/" onClick={handleLogOut}>
-                  LogOut
-                </Link>
-              </li>
-            ) : (
-              <>
                 <li>
-                  <Link className="text-xl" to="/login">
-                    Login
+                  <Link className="text-xl" to="/" onClick={handleLogOut}>
+                    LogOut
                   </Link>
                 </li>
-                <li>
-                  <Link className="text-xl" to="/register">
-                    Register
-                  </Link>
-                </li>
-              </>
-            )}
+              ) : (
+                <>
+                  <li>
+                    <NavLink
+                      to="/login"
+                      className={({ isActive }) =>
+                        isActive ? "active" : "default"
+                      }
+                    >
+                      Login
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/register"
+                      className={({ isActive }) =>
+                        isActive ? "active" : "default"
+                      }
+                    >
+                      Register
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           <div className="flex items-center">
             <div>
-              <img src={logo} alt="" />
+              <Link to="/">
+                <img src={logo} alt="" />
+              </Link>
             </div>
-            <a className="btn btn-ghost normal-case text-3xl">
-              Dragons Kitchen
-            </a>
+            <Link to="/">
+              <a className="btn btn-ghost normal-case text-3xl">
+                Dragons Kitchen
+              </a>
+            </Link>
           </div>
         </div>
         <div className="navbar-center hidden md:flex">
           <ul className="menu menu-horizontal px-1 gap-2">
             <li>
-              <Link className="text-xl" to="/">
+              <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link className="text-xl" to="/blog">
+              <NavLink
+                to="/blog"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
                 Blog
-              </Link>
+              </NavLink>
             </li>
             {user ? (
               <li>
-                <Link className="text-xl" to="/" onClick={handleLogOut}>
+                <Link to="/" onClick={handleLogOut}>
                   LogOut
                 </Link>
               </li>
             ) : (
               <>
                 <li>
-                  <Link className="text-xl" to="/login">
+                  <NavLink
+                    to="/login"
+                    className={({ isActive }) =>
+                      isActive ? "active" : "default"
+                    }
+                  >
                     Login
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link className="text-xl" to="/register">
+                  <NavLink
+                    to="/register"
+                    className={({ isActive }) =>
+                      isActive ? "active" : "default"
+                    }
+                  >
                     Register
-                  </Link>
+                  </NavLink>
                 </li>
               </>
             )}
@@ -106,7 +136,11 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <div className="dropdown dropdown-end">
-            <label style={{}} tabIndex={0} className="btn btn-ghost btn-circle avatar showName">
+            <label
+              style={{}}
+              tabIndex={0}
+              className="btn btn-ghost btn-circle avatar showName"
+            >
               <div className="w-10 rounded-full">
                 <img src={user?.photoURL} />
               </div>
@@ -116,34 +150,41 @@ const Navbar = () => {
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-error rounded-box w-52"
             >
               <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
+                <a className="justify-between">Profile</a>
               </li>
               <li>
                 <a>Settings</a>
               </li>
               {user ? (
-              <li>
-                <Link className="text-xl" to="/" onClick={handleLogOut}>
-                  LogOut
-                </Link>
-              </li>
-            ) : (
-              <>
                 <li>
-                  <Link className="text-xl" to="/login">
-                    Login
-                  </Link>
+                  <NavLink to="/" onClick={handleLogOut}>
+                    LogOut
+                  </NavLink>
                 </li>
-                <li>
-                  <Link className="text-xl" to="/register">
-                    Register
-                  </Link>
-                </li>
-              </>
-            )}
+              ) : (
+                <>
+                  <li>
+                    <NavLink
+                      to="/login"
+                      className={({ isActive }) =>
+                        isActive ? "active" : "default"
+                      }
+                    >
+                      Login
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/register"
+                      className={({ isActive }) =>
+                        isActive ? "active" : "default"
+                      }
+                    >
+                      Register
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

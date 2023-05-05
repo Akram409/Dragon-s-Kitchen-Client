@@ -19,10 +19,10 @@ const [favItem,setFavItem] = useState([])
       setFavItem(savedCard)
   },[])
 
-
+  console.log(favItem)
   const handleRemoveBtn = (id) =>{
-    const remaining = favItem.filter((it) => it.recipe_id !== id);
-    setFavItem(favItem);
+    const remaining = favItem.filter((it) => it !== id);
+    setFavItem(remaining);
     removeFromDb(id);
 }
 
@@ -31,8 +31,8 @@ const [favItem,setFavItem] = useState([])
       {
             favItem.map(items => <FavCard
                 key={items.recipe_id} 
-                handleRemoveBtn={handleRemoveBtn}
                 items ={items}
+                handleRemoveBtn={handleRemoveBtn}
             ></FavCard>)
         }
     </div>

@@ -104,11 +104,14 @@ const Navbar = () => {
               </NavLink>
             </li>
             {user ? (
+              <><li>
+              <NavLink to="/favourite">Favorite</NavLink>
+            </li>
               <li>
                 <Link to="/" onClick={handleLogOut}>
                   LogOut
                 </Link>
-              </li>
+              </li></>
             ) : (
               <>
                 <li>
@@ -162,7 +165,7 @@ const Navbar = () => {
                 <NavLink to="/user" className="justify-between">Profile</NavLink>
               </li>
               <li>
-                <a>Settings</a>
+                <NavLink to="/favourite">Favorite</NavLink>
               </li>
               {user ? (
                 <li>

@@ -19,6 +19,7 @@ import ClientReview from "./Component/Page/ClientReview";
 import PrivateRoute from "./Component/Provider/PrivateRoute";
 import Error from "./Component/Share/Error/Error";
 import UserDetails from "./Component/Page/UserDetails";
+import FavItem from "./Component/Page/FavItem";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/user",
-        element: <UserDetails />,
+        element: <PrivateRoute><UserDetails /></PrivateRoute>,
+      },
+      {
+        path: "/favourite",
+        element: <PrivateRoute><FavItem /></PrivateRoute>,
       },
       {
         path: "*",

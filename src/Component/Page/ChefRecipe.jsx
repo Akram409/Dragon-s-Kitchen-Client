@@ -4,11 +4,12 @@ import "@smastrom/react-rating/style.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigation } from "react-router-dom";
 import Spiner from "../Share/Spiner";
+import { addToDb } from "../../utilities/fakedb";
 
 const ChefRecipe = ({ item }) => {
   const navigation = useNavigation()
   const [ratings, setRatings] = useState(0);
-  const { chef_id, recipeName, ingredients, cookingMethod, rating } = item;
+  const { recipe_id, recipeName, ingredients, cookingMethod, rating } = item;
   const [mark, setmark] = useState(false);
 
   if(navigation.state === 'loading')
@@ -17,6 +18,7 @@ const ChefRecipe = ({ item }) => {
   }
 
   const handlefav = () => {
+    addToDb(recipe_id)
     setmark(!mark)
     toast.success("🦄 Marked Favorite Recipe!", {
       position: "top-right",

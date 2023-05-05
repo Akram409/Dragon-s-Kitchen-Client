@@ -149,7 +149,7 @@ const Navbar = () => {
                 </div>
               ) : (
                 <div className="w-10 rounded-full img__wrap">
-                  <img className="img__img" src={"https://raw.githubusercontent.com/Akram409/Developer-Portfolio/main/images/profile.png"} />
+                  <img className="img__img " src={"https://raw.githubusercontent.com/Akram409/Developer-Portfolio/main/images/profile.png"} />
                   <p class="img__description">{user?.displayName}</p>
                 </div>
               )}
@@ -159,7 +159,7 @@ const Navbar = () => {
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-error rounded-box w-52"
             >
               <li>
-                <a className="justify-between">Profile</a>
+                <NavLink to="/user" className="justify-between">Profile</NavLink>
               </li>
               <li>
                 <a>Settings</a>

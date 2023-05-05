@@ -18,6 +18,7 @@ import About from "./Component/Page/About";
 import ClientReview from "./Component/Page/ClientReview";
 import PrivateRoute from "./Component/Provider/PrivateRoute";
 import Error from "./Component/Share/Error/Error";
+import UserDetails from "./Component/Page/UserDetails";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/user",
+        element: <UserDetails />,
       },
       {
         path: "*",

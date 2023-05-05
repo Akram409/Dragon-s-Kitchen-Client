@@ -28,8 +28,7 @@ const ChefDetails = ({ item }) => {
         <div className="hero-content flex-col lg:flex-row gap-4">
           <img
             className="w-1/4 h-1/2"
-            // effect="blur"
-            src={chefPicture} // use normal <img> attributes as props
+            src={chefPicture} 
           />
           <div>
             <h1 className="text-5xl font-bold mb-2">{chefName}</h1>

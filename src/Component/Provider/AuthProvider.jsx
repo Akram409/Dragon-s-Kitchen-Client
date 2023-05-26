@@ -10,7 +10,7 @@ import {
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+
 
 export const AuthContext = createContext();
 const auth = getAuth(app);

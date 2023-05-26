@@ -1,4 +1,4 @@
-## Project Name: Dragons kitchen
+## Project Name: Dragon's kitchen
 
 Live Link : [Dragons kitchen](https://dragon-s-kitchen.web.app/).
 

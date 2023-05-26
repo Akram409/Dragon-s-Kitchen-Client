@@ -2,8 +2,6 @@ import React from "react";
 import image from "/public/banner.jpg";
 
 
-
-
 const startupScreen = (
   <div>
     <img src="/path/to/image-loader.png" />
